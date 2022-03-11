@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.algorithmsvisualizer/com.example.algorithmsvisualizer.HelloApplication
+                                com.example.algorithmsvisualizer/com.example.algorithmsvisualizer.Main
                             </mainClass>
                         </configuration>
                     </execution>

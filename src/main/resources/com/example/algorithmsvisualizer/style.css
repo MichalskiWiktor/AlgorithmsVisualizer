@@ -1,0 +1,12 @@
+.button{
+-fx-cursor:hand;
+}
+.controlBtn{
+-fx-background-color:#e80606;
+}
+.controlBtn:hover{
+-fx-background-color:white;
+-fx-text-fill:#e80606;
+-fx-border-color: #e80606;
+-fx-border-width: 1;
+}

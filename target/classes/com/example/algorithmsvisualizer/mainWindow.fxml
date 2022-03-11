@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.algorithmsvisualizer.MainWindowController">
     <children>
         <HBox layoutY="14.0" prefHeight="70.0" prefWidth="850.0">
             <children>
@@ -13,10 +13,10 @@
                     <children>
                         <Label fx:id="menuLbl" prefHeight="17.0" prefWidth="210.0" text="Algorithms" textFill="#e80606">
                             <font>
-                                <Font name="Noto Sans Bold" size="14.0" />
+                                <Font name="System Bold" size="14.0" />
                             </font>
                         </Label>
-                        <ComboBox fx:id="algoPicker" prefHeight="30.0" prefWidth="210.0" style="-fx-background-color: white; -fx-border-color: transparent transparent #636363 transparent;">
+                        <ComboBox fx:id="algorithmPicker" prefHeight="30.0" prefWidth="210.0" style="-fx-background-color: white; -fx-border-color: transparent transparent #636363 transparent;">
                             <VBox.margin>
                                 <Insets top="5.0" />
                             </VBox.margin>
@@ -31,7 +31,7 @@
                 </VBox>
                 <VBox layoutX="60.0" layoutY="10.0" prefHeight="70.0" prefWidth="210.0">
                     <children>
-                        <Label fx:id="menuLbl1" prefHeight="17.0" prefWidth="210.0" text="No. of elements" textFill="#e80606">
+                        <Label fx:id="menuLbl1" prefHeight="17.0" prefWidth="210.0" style="-fx-font-weight: bold;" text="No. of elements" textFill="#e80606">
                             <font>
                                 <Font name="Noto Sans Bold" size="14.0" />
                             </font>
@@ -46,19 +46,21 @@
                         <Insets left="35.0" />
                     </HBox.margin>
                 </VBox>
-                <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="83.0" style="-fx-background-color: #e80606;" text="SORT" textFill="WHITE">
+                <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="83.0" styleClass="controlBtn" text="SORT" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
                     <HBox.margin>
                         <Insets left="35.0" top="15.0" />
                     </HBox.margin></Button>
-                <Button layoutX="550.0" layoutY="25.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="83.0" style="-fx-background-color: #e80606;" text="GENERATE RANDOM" textFill="WHITE">
+                <Button layoutX="550.0" layoutY="25.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="182.0" styleClass="controlBtn" text="GENERATE RANDOM" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
+               <HBox.margin>
+                  <Insets left="25.0" top="15.0" />
+               </HBox.margin>
                 </Button>
             </children></HBox>
     </children>
 </AnchorPane>
-
