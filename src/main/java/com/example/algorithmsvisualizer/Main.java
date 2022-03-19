@@ -12,7 +12,7 @@ public class Main extends Application{
     @Override
     public void start(Stage stage) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("mainWindow.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 850, 440);
+        Scene scene = new Scene(fxmlLoader.load(), 950, 440);
         stage.setTitle("Algorithms Visualizer");
         stage.setScene(scene);
         stage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());

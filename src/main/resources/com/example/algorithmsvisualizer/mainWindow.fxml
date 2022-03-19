@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.algorithmsvisualizer.MainWindowController">
+<AnchorPane fx:id="speedSlider" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.algorithmsvisualizer.MainWindowController">
     <children>
-        <HBox layoutY="14.0" prefHeight="70.0" prefWidth="850.0">
+        <HBox layoutY="14.0" prefHeight="70.0" prefWidth="950.0">
             <children>
                 <VBox prefHeight="70.0" prefWidth="210.0">
                     <children>
@@ -26,7 +26,7 @@
                         </ComboBox>
                     </children>
                     <HBox.margin>
-                        <Insets left="50.0" />
+                        <Insets left="20.0" />
                     </HBox.margin>
                 </VBox>
                 <VBox layoutX="60.0" layoutY="10.0" prefHeight="70.0" prefWidth="210.0">
@@ -36,29 +36,46 @@
                                 <Font name="Noto Sans Bold" size="14.0" />
                             </font>
                         </Label>
-                        <TextField prefHeight="36.0" prefWidth="210.0" style="-fx-border-color: transparent transparent #636363 transparent; -fx-background-color: white;">
+                        <TextField fx:id="noOfElementsField" prefHeight="36.0" prefWidth="210.0" style="-fx-border-color: transparent transparent #636363 transparent; -fx-background-color: white;">
                             <padding>
                                 <Insets bottom="4.0" />
                             </padding>
                         </TextField>
                     </children>
                     <HBox.margin>
-                        <Insets left="35.0" />
+                        <Insets left="20.0" />
                     </HBox.margin>
                 </VBox>
-                <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="83.0" styleClass="controlBtn" text="SORT" textFill="WHITE">
+            <VBox layoutX="305.0" layoutY="10.0" prefHeight="70.0" prefWidth="150.0">
+               <children>
+                  <Label fx:id="menuLbl11" prefHeight="17.0" prefWidth="210.0" style="-fx-font-weight: bold;" text="Speed" textFill="#e80606">
+                     <font>
+                        <Font name="Noto Sans Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Slider max="10.0" min="1.0" showTickLabels="true">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Slider>
+               </children>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </VBox>
+                <Button mnemonicParsing="false" onAction="#sort" prefHeight="38.0" prefWidth="83.0" styleClass="controlBtn" text="SORT" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
                     <HBox.margin>
-                        <Insets left="35.0" top="15.0" />
+                        <Insets left="20.0" top="18.0" />
                     </HBox.margin></Button>
-                <Button layoutX="550.0" layoutY="25.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="182.0" styleClass="controlBtn" text="GENERATE RANDOM" textFill="WHITE">
+                <Button fx:id="generateRandom" layoutX="550.0" layoutY="25.0" mnemonicParsing="false" onAction="#generateRandom" prefHeight="38.0" prefWidth="182.0" styleClass="controlBtn" text="GENERATE RANDOM" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
                <HBox.margin>
-                  <Insets left="25.0" top="15.0" />
+                  <Insets left="20.0" top="18.0" />
                </HBox.margin>
                 </Button>
             </children></HBox>
