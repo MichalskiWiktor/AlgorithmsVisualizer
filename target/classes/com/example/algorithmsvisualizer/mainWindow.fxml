@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="speedSlider" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.algorithmsvisualizer.MainWindowController">
+<AnchorPane fx:id="speedSlider" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="950.0" style="-fx-background-color: #FEEFEC;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.algorithmsvisualizer.MainWindowController">
     <children>
         <HBox layoutY="14.0" prefHeight="70.0" prefWidth="950.0">
             <children>
                 <VBox prefHeight="70.0" prefWidth="210.0">
                     <children>
-                        <Label fx:id="menuLbl" prefHeight="17.0" prefWidth="210.0" text="Algorithms" textFill="#e80606">
+                        <Label fx:id="menuLbl" prefHeight="17.0" prefWidth="210.0" text="Algorithms" textFill="#f56a4d">
                             <font>
                                 <Font name="System Bold" size="14.0" />
                             </font>
@@ -31,7 +31,7 @@
                 </VBox>
                 <VBox layoutX="60.0" layoutY="10.0" prefHeight="70.0" prefWidth="210.0">
                     <children>
-                        <Label fx:id="menuLbl1" prefHeight="17.0" prefWidth="210.0" style="-fx-font-weight: bold;" text="No. of elements" textFill="#e80606">
+                        <Label fx:id="menuLbl1" prefHeight="17.0" prefWidth="210.0" style="-fx-font-weight: bold;" text="No. of elements" textFill="#f56a4d">
                             <font>
                                 <Font name="Noto Sans Bold" size="14.0" />
                             </font>
@@ -48,7 +48,7 @@
                 </VBox>
             <VBox layoutX="305.0" layoutY="10.0" prefHeight="70.0" prefWidth="150.0">
                <children>
-                  <Label fx:id="menuLbl11" prefHeight="17.0" prefWidth="210.0" style="-fx-font-weight: bold;" text="Speed" textFill="#e80606">
+                  <Label fx:id="menuLbl11" prefHeight="17.0" prefWidth="210.0" style="-fx-font-weight: bold;" text="Speed" textFill="#f56a4d">
                      <font>
                         <Font name="Noto Sans Bold" size="14.0" />
                      </font>
