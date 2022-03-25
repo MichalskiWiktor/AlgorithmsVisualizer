@@ -17,12 +17,12 @@ public class MainWindowController{
     }
 
     public void sort(){
-        int numElements = Integer.parseInt(noOfElementsField.getText().toString());
+        int numElements = Integer.parseInt(this.noOfElementsField.getText());
         if(numElements>0){
             Algorithm algorithm;
-            switch(algorithmPicker.getSelectionModel().getSelectedItem().toString()){
+            switch(this.algorithmPicker.getSelectionModel().getSelectedItem().toString()){
                 case "Bumble Sort":
-                    algorithm = new BubbleSort(getArrayWithRandomNumbers(numElements));
+                    algorithm = new BubbleSort(getArrayWithRandomNumbers(numElements), this.hbox);
                     break;
                 default:{
                     System.out.println("error");
@@ -30,9 +30,8 @@ public class MainWindowController{
                 }
 
             }
-            Line[] lines = algorithm.draw();
-            System.out.println(lines.length);
-            this.hbox.getChildren().addAll(lines);
+            algorithm.drawElements();
+            algorithm.drawSortingVisualization();
         }
         else{
             System.out.println("error");
@@ -40,7 +39,7 @@ public class MainWindowController{
     }
     public float[] getArrayWithRandomNumbers(int len){
         Random rand = new Random();
-        int upperbound = 100;
+        int upperbound = 40;
         float[] nums = new float[len];
         for(int i=0;i<len;i++){
             nums[i] = rand.nextFloat(upperbound);

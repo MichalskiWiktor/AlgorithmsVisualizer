@@ -1,16 +1,15 @@
 package com.example.algorithmsvisualizer;
 
+import javafx.scene.layout.HBox;
 import javafx.scene.shape.Line;
 
 public class Algorithm{
     private int speed;
     private int noOfElements;
-
-    public void sort(){
+    public void drawSortingVisualization(){
         System.out.println("sortowanie");
     }
-    public Line[] draw(){
+    public void drawElements(){
         System.out.println("wizualizowanie");
-        return new Line[1];
     }
 }
