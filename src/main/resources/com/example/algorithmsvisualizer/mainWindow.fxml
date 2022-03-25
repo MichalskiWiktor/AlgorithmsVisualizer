@@ -79,5 +79,6 @@
                </HBox.margin>
                 </Button>
             </children></HBox>
+      <HBox fx:id="hbox" layoutX="14.0" layoutY="84.0" prefHeight="334.0" prefWidth="921.0" />
     </children>
 </AnchorPane>
