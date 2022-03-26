@@ -17,21 +17,28 @@ public class BubbleSort extends Algorithm{
         this.lines = new Line[this.length];
     }
     public void drawSortingVisualization() {
-        for (int i = 0; i < this.length-1; i++){
-            for (int j = 0; j < this.length-i-1; j++){
-                if (this.values[j] > this.values[j+1]) {
-                    float temp = this.values[j];
-                    this.values[j] = this.values[j+1];
-                    this.values[j+1] = temp;
-                    this.lines[j].setStroke(Color.WHITE);
-                    try{
+        for (int i = 0; i < length-1; i++){
+            for (int j = 0; j < length-i-1; j++){
+                if (values[j] > values[j+1]) {
+                    int line1index = this.hbox.getChildren().indexOf(lines[j]);
+                    int line2index = this.hbox.getChildren().indexOf(lines[j+1]);
+                    double line1endY = ((Line)this.hbox.getChildren().get(line1index)).getEndY();
+                   ((Line)this.hbox.getChildren().get(line1index)).setEndY(((Line)this.hbox.getChildren().get(line2index)).getEndY());
+                   ((Line)this.hbox.getChildren().get(line2index)).setEndY(line1endY);
+                    float temp = values[j];
+                    values[j] = values[j+1];
+                    values[j+1] = temp;
+                    /*try{
                         Thread.sleep(1000);
                     }catch(InterruptedException e){
                         e.printStackTrace();
-                    }
-                    this.lines[j].setStroke(Color.RED);
+                        System.out.println("erro");
+                    }*/
                 }
             }
+        }
+        for(int i = 0; i < length-1; i++){
+            System.out.println(values[i]);
         }
     }
     public void drawElements(){
