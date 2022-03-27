@@ -17,26 +17,31 @@ public class BubbleSort extends Algorithm{
         this.lines = new Line[this.length];
     }
     public void drawSortingVisualization() {
-        for (int i = 0; i < length-1; i++){
-            for (int j = 0; j < length-i-1; j++){
-                if (values[j] > values[j+1]) {
-                    int line1index = this.hbox.getChildren().indexOf(lines[j]);
-                    int line2index = this.hbox.getChildren().indexOf(lines[j+1]);
-                    double line1endY = ((Line)this.hbox.getChildren().get(line1index)).getEndY();
-                   ((Line)this.hbox.getChildren().get(line1index)).setEndY(((Line)this.hbox.getChildren().get(line2index)).getEndY());
-                   ((Line)this.hbox.getChildren().get(line2index)).setEndY(line1endY);
-                    float temp = values[j];
-                    values[j] = values[j+1];
-                    values[j+1] = temp;
-                    /*try{
-                        Thread.sleep(1000);
-                    }catch(InterruptedException e){
-                        e.printStackTrace();
-                        System.out.println("erro");
-                    }*/
+        Thread thread = new Thread(){
+            public void run(){
+                for (int i = 0; i < length-1; i++){
+                    for (int j = 0; j < length-i-1; j++){
+                        if (values[j] > values[j+1]) {
+                            int line1index = hbox.getChildren().indexOf(lines[j]);
+                            int line2index = hbox.getChildren().indexOf(lines[j+1]);
+                            double line1endY = ((Line)hbox.getChildren().get(line1index)).getEndY();
+                            ((Line)hbox.getChildren().get(line1index)).setEndY(((Line)hbox.getChildren().get(line2index)).getEndY());
+                            ((Line)hbox.getChildren().get(line2index)).setEndY(line1endY);
+                            float temp = values[j];
+                            values[j] = values[j+1];
+                            values[j+1] = temp;
+                            try{
+                                Thread.sleep(1000);
+                            }catch(InterruptedException e){
+                                e.printStackTrace();
+                                System.out.println("erro");
+                            }
+                        }
+                    }
                 }
             }
-        }
+        };
+        thread.start();
         for(int i = 0; i < length-1; i++){
             System.out.println(values[i]);
         }
