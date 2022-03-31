@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.scene.shape.Line;
 
 import java.util.Random;
 
@@ -17,6 +16,7 @@ public class MainWindowController{
     }
 
     public void sort(){
+        hbox.getChildren().clear();
         int numElements = Integer.parseInt(this.noOfElementsField.getText());
         if(numElements>0){
             Algorithm algorithm;
@@ -39,7 +39,7 @@ public class MainWindowController{
     }
     public float[] getArrayWithRandomNumbers(int len){
         Random rand = new Random();
-        int upperbound = 40;
+        int upperbound = 42;
         float[] nums = new float[len];
         for(int i=0;i<len;i++){
             nums[i] = rand.nextFloat(upperbound);
