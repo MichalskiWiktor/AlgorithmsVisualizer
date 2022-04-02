@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="950.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.algorithmsvisualizer.MainWindowController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="1109.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.algorithmsvisualizer.MainWindowController">
     <children>
         <HBox layoutY="14.0" prefHeight="70.0" prefWidth="950.0">
             <children>
@@ -46,24 +46,24 @@
                         <Insets left="20.0" />
                     </HBox.margin>
                 </VBox>
-            <VBox layoutX="305.0" layoutY="10.0" prefHeight="70.0" prefWidth="150.0">
-               <children>
-                  <Label fx:id="menuLbl11" prefHeight="17.0" prefWidth="210.0" style="-fx-font-weight: bold;" text="Speed" textFill="#f56a4d">
-                     <font>
-                        <Font name="Noto Sans Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <Slider max="10.0" min="1.0" showTickLabels="true">
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </Slider>
-               </children>
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-            </VBox>
-                <Button mnemonicParsing="false" onAction="#sort" prefHeight="38.0" prefWidth="83.0" styleClass="controlBtn" text="SORT" textFill="WHITE">
+                <VBox layoutX="305.0" layoutY="10.0" prefHeight="70.0" prefWidth="150.0">
+                    <children>
+                        <Label fx:id="menuLbl11" prefHeight="17.0" prefWidth="210.0" style="-fx-font-weight: bold;" text="Speed" textFill="#f56a4d">
+                            <font>
+                                <Font name="Noto Sans Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Slider fx:id="speedSlider" max="10.0" min="1.0" showTickLabels="true">
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </Slider>
+                    </children>
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                </VBox>
+                <Button mnemonicParsing="false" onAction="#createAlgorithm" prefHeight="38.0" prefWidth="83.0" styleClass="controlBtn" text="SORT" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
@@ -74,11 +74,23 @@
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
-               <HBox.margin>
-                  <Insets left="20.0" top="18.0" />
-               </HBox.margin>
+                    <HBox.margin>
+                        <Insets left="20.0" top="18.0" />
+                    </HBox.margin>
                 </Button>
             </children></HBox>
-      <HBox fx:id="hbox" alignment="TOP_CENTER" layoutX="14.0" layoutY="84.0" prefHeight="334.0" prefWidth="921.0" spacing="10.0" />
+        <HBox fx:id="hbox" alignment="TOP_CENTER" layoutX="15.0" layoutY="84.0" prefHeight="335.0" prefWidth="920.0" spacing="10.0" />
+        <VBox layoutX="956.0" layoutY="84.0" prefHeight="335.0" prefWidth="140.0">
+            <children>
+                <Label alignment="CENTER" prefHeight="37.0" prefWidth="146.0" text="Big O Notation:" textFill="#f56a4d">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" prefHeight="8.0" prefWidth="140.0" style="-fx-font-weight: bold;" text="O(n^2)">
+                    <font>
+                        <Font size="17.0" />
+                    </font></Label>
+            </children></VBox>
     </children>
 </AnchorPane>
