@@ -82,15 +82,34 @@
         <HBox fx:id="hbox" alignment="TOP_CENTER" layoutX="15.0" layoutY="84.0" prefHeight="335.0" prefWidth="920.0" spacing="10.0" />
         <VBox layoutX="956.0" layoutY="84.0" prefHeight="335.0" prefWidth="140.0">
             <children>
-                <Label alignment="CENTER" prefHeight="37.0" prefWidth="146.0" text="Big O Notation:" textFill="#f56a4d">
-                    <font>
+            <VBox prefHeight="86.0" prefWidth="140.0">
+               <children>
+                      <Label alignment="CENTER" prefHeight="37.0" prefWidth="146.0" text="Big O Notation:" textFill="#f56a4d">
+                          <font>
+                              <Font name="System Bold" size="18.0" />
+                          </font>
+                      </Label>
+                      <Label fx:id="bigONotationLbl" alignment="CENTER" prefHeight="8.0" prefWidth="140.0" style="-fx-font-weight: bold;">
+                          <font>
+                              <Font size="17.0" />
+                          </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="86.0" prefWidth="140.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="146.0" text="Time:" textFill="#f56a4d">
+                     <font>
                         <Font name="System Bold" size="18.0" />
-                    </font>
-                </Label>
-                <Label alignment="CENTER" prefHeight="8.0" prefWidth="140.0" style="-fx-font-weight: bold;" text="O(n^2)">
-                    <font>
+                     </font>
+                  </Label>
+                  <Label fx:id="clockLbl" alignment="CENTER" prefHeight="8.0" prefWidth="140.0" style="-fx-font-weight: bold;" text="0">
+                     <font>
                         <Font size="17.0" />
-                    </font></Label>
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
             </children></VBox>
     </children>
 </AnchorPane>

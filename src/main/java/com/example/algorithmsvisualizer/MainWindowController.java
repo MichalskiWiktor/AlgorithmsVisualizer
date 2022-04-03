@@ -2,15 +2,19 @@ package com.example.algorithmsvisualizer;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MainWindowController{
     @FXML ComboBox algorithmPicker;
     @FXML TextField noOfElementsField;
+    @FXML Label bigONotationLbl;
+    @FXML Label clockLbl;
     @FXML Slider speedSlider;
     @FXML HBox hbox = new HBox();
     @FXML public void initialize(){
@@ -34,12 +38,14 @@ public class MainWindowController{
         if(numElements>=2){
             Algorithm algorithm;
             switch(this.algorithmPicker.getSelectionModel().getSelectedItem().toString()){
-                case "Bumble Sort" -> algorithm = new BubbleSort(getRandomNumbers(numElements), this.hbox, this.speedSlider.getValue());
+                case "Bumble Sort" -> algorithm = new BubbleSort(getRandomNumbers(numElements), this.hbox, this.clockLbl, this.speedSlider.getValue());
                 default -> {
                     System.out.println("error");
                     algorithm = new Algorithm();
                 }
             }
+            System.out.println(algorithm.getBigONotation());
+            this.bigONotationLbl.setText(algorithm.getBigONotation());
             algorithm.drawElements();
             algorithm.drawSortingVisualization();
         }else{
@@ -47,13 +53,15 @@ public class MainWindowController{
         }
     }
     public int[] getRandomNumbers(int len){
-        Random rand = new Random();
-        int upperbound = 42;
-        int[] nums = new int[len];
-        for(int i=0;i<len;i++){
-            nums[i] = rand.nextInt(upperbound);
+        ArrayList<Integer> numbers = new ArrayList<Integer>();
+        Random randomGenerator = new Random();
+        while (numbers.size() < len) {
+            int random = randomGenerator.nextInt(42);
+            if (!numbers.contains(random)) {
+                numbers.add(random);
+            }
         }
-        return nums;
+        return numbers.stream().mapToInt(i -> i).toArray();
     }
     public void generateRandom(){
     }

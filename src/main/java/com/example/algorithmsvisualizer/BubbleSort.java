@@ -1,22 +1,27 @@
 package com.example.algorithmsvisualizer;
 
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
 public class BubbleSort extends Algorithm{
-    private int[] values;
     private int length;
-    private HBox hbox;
-    private Line[] lines;
     private double speed;
+    private String bigONotation;
+    private int[] values;
+    private Line[] lines;
+    private HBox hbox;
+    private Label clockLbl;
 
-    public BubbleSort(int values[], HBox hbox, double speed){
+    public BubbleSort(int values[], HBox hbox, Label clockLbl, double speed){
         this.values = values;
         this.hbox = hbox;
+        this.clockLbl = clockLbl;
         this.speed = speed;
         this.length = this.values.length;
         this.lines = new Line[this.length];
+        this.bigONotation = "O(n^2)";
     }
     public void drawSortingVisualization() {
         Thread thread = new Thread(){
@@ -50,10 +55,12 @@ public class BubbleSort extends Algorithm{
                         }
                     }
                 }
+                for(int i=0;i<length;i++){
+                    System.out.println(values[i]);
+                }
             }
         };
         thread.start();
-        ////after eending of visualizatyion add bigO notation and time it took to vinish algoritms vith picked speed
     }
     public void drawElements(){
         for(int k=0;k<this.length;k++){
@@ -62,5 +69,8 @@ public class BubbleSort extends Algorithm{
             lines[k].setStrokeWidth(20.5);
         }
         this.hbox.getChildren().addAll(lines);
+    }
+    public String getBigONotation(){
+        return this.bigONotation;
     }
 }
