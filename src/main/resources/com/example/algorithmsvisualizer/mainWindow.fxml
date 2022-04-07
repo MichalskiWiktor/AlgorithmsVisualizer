@@ -5,111 +5,119 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="1109.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.algorithmsvisualizer.MainWindowController">
-    <children>
-        <HBox layoutY="14.0" prefHeight="70.0" prefWidth="950.0">
-            <children>
-                <VBox prefHeight="70.0" prefWidth="210.0">
-                    <children>
-                        <Label fx:id="menuLbl" prefHeight="17.0" prefWidth="210.0" text="Algorithms" textFill="#f56a4d">
-                            <font>
-                                <Font name="System Bold" size="14.0" />
-                            </font>
-                        </Label>
-                        <ComboBox fx:id="algorithmPicker" prefHeight="30.0" prefWidth="210.0" style="-fx-background-color: white; -fx-border-color: transparent transparent #636363 transparent;">
-                            <VBox.margin>
-                                <Insets top="5.0" />
-                            </VBox.margin>
-                            <padding>
-                                <Insets bottom="4.0" />
-                            </padding>
-                        </ComboBox>
-                    </children>
-                    <HBox.margin>
-                        <Insets left="20.0" />
-                    </HBox.margin>
-                </VBox>
-                <VBox layoutX="60.0" layoutY="10.0" prefHeight="70.0" prefWidth="210.0">
-                    <children>
-                        <Label fx:id="menuLbl1" prefHeight="17.0" prefWidth="210.0" style="-fx-font-weight: bold;" text="No. of elements" textFill="#f56a4d">
-                            <font>
-                                <Font name="Noto Sans Bold" size="14.0" />
-                            </font>
-                        </Label>
-                        <TextField fx:id="noOfElementsField" prefHeight="36.0" prefWidth="210.0" style="-fx-border-color: transparent transparent #636363 transparent; -fx-background-color: white;">
-                            <padding>
-                                <Insets bottom="4.0" />
-                            </padding>
-                        </TextField>
-                    </children>
-                    <HBox.margin>
-                        <Insets left="20.0" />
-                    </HBox.margin>
-                </VBox>
-                <VBox layoutX="305.0" layoutY="10.0" prefHeight="70.0" prefWidth="150.0">
-                    <children>
-                        <Label fx:id="menuLbl11" prefHeight="17.0" prefWidth="210.0" style="-fx-font-weight: bold;" text="Speed" textFill="#f56a4d">
-                            <font>
-                                <Font name="Noto Sans Bold" size="14.0" />
-                            </font>
-                        </Label>
-                        <Slider fx:id="speedSlider" max="10.0" min="1.0" showTickLabels="true">
-                            <VBox.margin>
-                                <Insets top="10.0" />
-                            </VBox.margin>
-                        </Slider>
-                    </children>
-                    <HBox.margin>
-                        <Insets left="20.0" />
-                    </HBox.margin>
-                </VBox>
-                <Button mnemonicParsing="false" onAction="#createAlgorithm" prefHeight="38.0" prefWidth="83.0" styleClass="controlBtn" text="SORT" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="16.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets left="20.0" top="18.0" />
-                    </HBox.margin></Button>
-                <Button fx:id="generateRandom" layoutX="550.0" layoutY="25.0" mnemonicParsing="false" onAction="#generateRandom" prefHeight="38.0" prefWidth="182.0" styleClass="controlBtn" text="GENERATE RANDOM" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="16.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets left="20.0" top="18.0" />
-                    </HBox.margin>
-                </Button>
-            </children></HBox>
-        <HBox fx:id="hbox" alignment="TOP_CENTER" layoutX="15.0" layoutY="84.0" prefHeight="335.0" prefWidth="920.0" spacing="10.0" />
-        <VBox layoutX="956.0" layoutY="84.0" prefHeight="335.0" prefWidth="140.0">
-            <children>
-            <VBox prefHeight="86.0" prefWidth="140.0">
-               <children>
-                      <Label alignment="CENTER" prefHeight="37.0" prefWidth="146.0" text="Big O Notation:" textFill="#f56a4d">
-                          <font>
-                              <Font name="System Bold" size="18.0" />
-                          </font>
-                      </Label>
-                      <Label fx:id="bigONotationLbl" alignment="CENTER" prefHeight="8.0" prefWidth="140.0" style="-fx-font-weight: bold;">
-                          <font>
-                              <Font size="17.0" />
-                          </font>
-                  </Label>
-               </children>
-            </VBox>
-            <VBox layoutX="10.0" layoutY="10.0" prefHeight="86.0" prefWidth="140.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="146.0" text="Time:" textFill="#f56a4d">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="clockLbl" alignment="CENTER" prefHeight="8.0" prefWidth="140.0" style="-fx-font-weight: bold;" text="0">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
-            </children></VBox>
-    </children>
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="1015.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.algorithmsvisualizer.MainWindowController">
+    <HBox layoutY="14.0" prefHeight="70.0" prefWidth="1016.0">
+        <VBox prefHeight="70.0" prefWidth="210.0">
+            <HBox.margin>
+                <Insets left="20.0" />
+            </HBox.margin>
+            <Label fx:id="menuLbl" prefHeight="17.0" prefWidth="210.0" text="Algorithms" textFill="#f56a4d">
+                <font>
+                    <Font name="System Bold" size="14.0" />
+                </font>
+            </Label>
+            <ComboBox fx:id="algorithmPicker" prefHeight="30.0" prefWidth="210.0" style="-fx-background-color: white; -fx-border-color: transparent transparent #636363 transparent;">
+                <VBox.margin>
+                    <Insets top="5.0" />
+                </VBox.margin>
+                <padding>
+                    <Insets bottom="4.0" />
+                </padding>
+            </ComboBox>
+        </VBox>
+        <VBox layoutX="60.0" layoutY="10.0" prefHeight="70.0" prefWidth="210.0">
+            <HBox.margin>
+                <Insets left="20.0" />
+            </HBox.margin>
+            <Label fx:id="menuLbl1" prefHeight="17.0" prefWidth="210.0" style="-fx-font-weight: bold;" text="No. of elements" textFill="#f56a4d">
+                <font>
+                    <Font name="Noto Sans Bold" size="14.0" />
+                </font>
+            </Label>
+            <TextField fx:id="noOfElementsField" prefHeight="36.0" prefWidth="210.0" style="-fx-border-color: transparent transparent #636363 transparent; -fx-background-color: white;">
+                <padding>
+                    <Insets bottom="4.0" />
+                </padding>
+            </TextField>
+        </VBox>
+        <VBox layoutX="305.0" layoutY="10.0" prefHeight="70.0" prefWidth="150.0">
+            <HBox.margin>
+                <Insets left="20.0" />
+            </HBox.margin>
+            <Label fx:id="menuLbl11" prefHeight="17.0" prefWidth="210.0" style="-fx-font-weight: bold;" text="Speed" textFill="#f56a4d">
+                <font>
+                    <Font name="Noto Sans Bold" size="14.0" />
+                </font>
+            </Label>
+            <Slider fx:id="speedSlider" max="10.0" min="1.0" showTickLabels="true">
+                <VBox.margin>
+                    <Insets top="10.0" />
+                </VBox.margin>
+            </Slider>
+        </VBox>
+        <Button fx:id="generateRandom" layoutX="550.0" layoutY="25.0" mnemonicParsing="false" onAction="#generateRandom" prefHeight="38.0" prefWidth="182.0" styleClass="controlBtn" text="GENERATE RANDOM" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+            <HBox.margin>
+                <Insets left="20.0" top="18.0" />
+            </HBox.margin>
+        </Button>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="70.0" prefWidth="109.0" text="Algorithms Visualizer" textAlignment="CENTER" textFill="#dc9cfd" wrapText="true">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+            <HBox.margin>
+                <Insets left="35.0" />
+            </HBox.margin>
+        </Label>
+    </HBox>
+    <HBox fx:id="hbox" alignment="TOP_CENTER" layoutX="14.0" layoutY="89.0" prefHeight="335.0" prefWidth="818.0" spacing="10.0" />
+    <VBox layoutX="849.0" layoutY="89.0" prefHeight="335.0" prefWidth="140.0">
+        <Button mnemonicParsing="false" onAction="#createAlgorithm" prefHeight="38.0" prefWidth="141.0" styleClass="controlBtn" text="SORT" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+    </Button>
+        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#createAlgorithm" prefHeight="38.0" prefWidth="141.0" styleClass="controlBtn" text="POUSE" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+            <VBox.margin>
+                <Insets top="20.0" />
+            </VBox.margin>
+        </Button>
+        <VBox prefHeight="86.0" prefWidth="140.0">
+            <VBox.margin>
+                <Insets top="20.0" />
+            </VBox.margin>
+            <Label alignment="CENTER" prefHeight="37.0" prefWidth="146.0" text="Big O Notation:" textFill="#f56a4d">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+            </Label>
+            <Label fx:id="bigONotationLbl" alignment="CENTER" prefHeight="8.0" prefWidth="140.0" style="-fx-font-weight: bold;" text="0">
+                <font>
+                    <Font size="17.0" />
+                </font>
+            </Label>
+        </VBox>
+        <VBox layoutX="10.0" layoutY="10.0" prefHeight="86.0" prefWidth="140.0">
+            <Label alignment="CENTER" prefHeight="37.0" prefWidth="146.0" text="Time:" textFill="#f56a4d">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+            </Label>
+            <Label fx:id="clockLbl" alignment="CENTER" prefHeight="8.0" prefWidth="140.0" style="-fx-font-weight: bold;" text="0">
+                <font>
+                    <Font size="17.0" />
+                </font>
+            </Label>
+        </VBox>
+      <Label text="Made by WIktor Michalski" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+    </VBox>
 </AnchorPane>
