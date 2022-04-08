@@ -13,6 +13,8 @@ public class BubbleSort extends Algorithm{
     private Line[] lines;
     private HBox hbox;
     private Label clockLbl;
+    private Thread thread;
+    private boolean isVisualizationOn;
 
     public BubbleSort(int values[], HBox hbox, Label clockLbl, double speed){
         this.values = values;
@@ -22,9 +24,10 @@ public class BubbleSort extends Algorithm{
         this.length = this.values.length;
         this.lines = new Line[this.length];
         this.bigONotation = "O(n^2)";
+        this.isVisualizationOn = false;
     }
     public void drawSortingVisualization() {
-        Thread thread = new Thread(() -> {
+         Thread thread = new Thread(() -> {
             for (int i = 0; i < length-1; i++){
                 for (int j = 0; j < length-i-1; j++){
                     if (values[j] > values[j+1]) {
@@ -54,11 +57,16 @@ public class BubbleSort extends Algorithm{
                     }
                 }
             }
-            for(int i=0;i<length;i++){
-                System.out.println(values[i]);
-            }
         });
-        thread.start();
+         this.thread = thread;
+        this.thread.start();
+        this.isVisualizationOn = true;
+    }
+    public void pauseThread(){
+        this.thread.suspend();
+    }
+    public void resumeThread(){
+        this.thread.resume();
     }
     public void drawElements(){
         for(int k=0;k<this.length;k++){
@@ -70,5 +78,11 @@ public class BubbleSort extends Algorithm{
     }
     public String getBigONotation(){
         return this.bigONotation;
+    }
+    public Boolean getIsVisualizationOn(){
+        return this.isVisualizationOn;
+    }
+    public void setIsVisualizationOn(boolean isVisualizationOn){
+         this.isVisualizationOn = isVisualizationOn;
     }
 }

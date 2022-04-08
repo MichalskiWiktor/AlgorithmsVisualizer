@@ -7,6 +7,8 @@ public class Algorithm{
     private int speed;
     private int noOfElements;
     private String bigONotation;
+    private boolean isVisualizationOn;
+    private Thread thread;
     public void drawSortingVisualization(){
         System.out.println("sortowanie");
     }
@@ -15,5 +17,17 @@ public class Algorithm{
     }
     public String getBigONotation(){
         return this.bigONotation;
+    }
+    public Boolean getIsVisualizationOn(){
+        return this.isVisualizationOn;
+    }
+    public void setIsVisualizationOn(boolean isVisualizationOn){
+        this.isVisualizationOn = isVisualizationOn;
+    }
+    public void pauseThread(){
+        this.thread.suspend();
+    }
+    public void resumeThread(){
+        this.thread.resume();
     }
 }

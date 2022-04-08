@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="1015.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.algorithmsvisualizer.MainWindowController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="1015.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.algorithmsvisualizer.MainWindowController">
     <HBox layoutY="14.0" prefHeight="70.0" prefWidth="1016.0">
         <VBox prefHeight="70.0" prefWidth="210.0">
             <HBox.margin>
@@ -79,7 +79,7 @@
                 <Font name="System Bold" size="16.0" />
             </font>
     </Button>
-        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#createAlgorithm" prefHeight="38.0" prefWidth="141.0" styleClass="controlBtn" text="POUSE" textFill="WHITE">
+        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#manageVisualization" prefHeight="38.0" prefWidth="141.0" styleClass="controlBtn" text="PAUSE" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="16.0" />
             </font>

@@ -17,6 +17,7 @@ public class MainWindowController{
     @FXML Label clockLbl;
     @FXML Slider speedSlider;
     @FXML HBox hbox = new HBox();
+    Algorithm algorithm;
     @FXML public void initialize(){
         this.algorithmPicker.getItems().addAll("Bumble Sort", "Selection Sort", "Insertion Sort", "Quick Sort");
         this.algorithmPicker.getSelectionModel().selectFirst();
@@ -41,7 +42,7 @@ public class MainWindowController{
         /*Creating algorithm*/
         Algorithm algorithm;
         switch(this.algorithmPicker.getSelectionModel().getSelectedItem().toString()){
-            case "Bumble Sort" -> algorithm = new BubbleSort(getRandomNumbers(numElements), this.hbox, this.clockLbl, this.speedSlider.getValue());
+            case "Bumble Sort" -> algorithm = new BubbleSort(getRandomNumbers(numElements, 42), this.hbox, this.clockLbl, this.speedSlider.getValue());
             default -> {
                 System.out.println("error");
                 algorithm = new Algorithm();
@@ -51,17 +52,35 @@ public class MainWindowController{
         this.bigONotationLbl.setText(algorithm.getBigONotation());
         algorithm.drawElements();
         algorithm.drawSortingVisualization();
+        this.algorithm = algorithm;
     }
-    public int[] getRandomNumbers(int len){
+    public int[] getRandomNumbers(int len, int max){
         ArrayList<Integer> numbers = new ArrayList<Integer>();
         Random randomGenerator = new Random();
         while (numbers.size() < len) {
-            int random = randomGenerator.nextInt(42);
+            int random = randomGenerator.nextInt(max);
             if (!numbers.contains(random))
                 numbers.add(random);
         }
         return numbers.stream().mapToInt(i -> i).toArray();
     }
+    public void manageVisualization(){
+        if(this.algorithm.getIsVisualizationOn()){
+            this.algorithm.pauseThread();
+            this.algorithm.setIsVisualizationOn(false);
+        }
+        else{
+            this.algorithm.resumeThread();
+            this.algorithm.setIsVisualizationOn(true);
+        }
+    }
     public void generateRandom(){
+        Random randomGenerator = new Random();
+        /*Type of algorithm*/
+        this.algorithmPicker.setValue(this.algorithmPicker.getItems().get(randomGenerator.nextInt(3)));
+        /*No of elements*/
+        this.noOfElementsField.setText(String.valueOf(randomGenerator.nextInt(23) + 2));
+        /*Speed*/
+        this.speedSlider.setValue(randomGenerator.nextInt(10));
     }
 }
