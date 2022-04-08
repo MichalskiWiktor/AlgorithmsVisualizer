@@ -17,7 +17,7 @@ public class MainWindowController{
     @FXML Label clockLbl;
     @FXML Slider speedSlider;
     @FXML HBox hbox = new HBox();
-    Algorithm algorithm;
+    AlgorithmVisualization algorithm;
     @FXML public void initialize(){
         this.algorithmPicker.getItems().addAll("Bumble Sort", "Selection Sort", "Insertion Sort", "Quick Sort");
         this.algorithmPicker.getSelectionModel().selectFirst();
@@ -40,12 +40,11 @@ public class MainWindowController{
             this.noOfElementsField.setText("2");
         }
         /*Creating algorithm*/
-        Algorithm algorithm;
+        AlgorithmVisualization algorithm = null;
         switch(this.algorithmPicker.getSelectionModel().getSelectedItem().toString()){
-            case "Bumble Sort" -> algorithm = new BubbleSort(getRandomNumbers(numElements, 42), this.hbox, this.clockLbl, this.speedSlider.getValue());
+            case "Bumble Sort" -> algorithm = new BubbleSortVisualization(getRandomNumbers(numElements, 42), this.hbox, this.clockLbl, this.speedSlider.getValue());
             default -> {
                 System.out.println("error");
-                algorithm = new Algorithm();
             }
         }
         /*Showing algorithm*/
@@ -66,11 +65,11 @@ public class MainWindowController{
     }
     public void manageVisualization(){
         if(this.algorithm.getIsVisualizationOn()){
-            this.algorithm.pauseThread();
+            this.algorithm.pauseVisualization();
             this.algorithm.setIsVisualizationOn(false);
         }
         else{
-            this.algorithm.resumeThread();
+            this.algorithm.resumeVisualization();
             this.algorithm.setIsVisualizationOn(true);
         }
     }

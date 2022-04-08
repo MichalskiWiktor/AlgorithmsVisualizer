@@ -5,7 +5,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
-public class BubbleSort extends Algorithm{
+public class BubbleSortVisualization extends AlgorithmVisualization{
     private int length;
     private double speed;
     private String bigONotation;
@@ -16,7 +16,7 @@ public class BubbleSort extends Algorithm{
     private Thread thread;
     private boolean isVisualizationOn;
 
-    public BubbleSort(int values[], HBox hbox, Label clockLbl, double speed){
+    public BubbleSortVisualization(int values[], HBox hbox, Label clockLbl, double speed){
         this.values = values;
         this.hbox = hbox;
         this.clockLbl = clockLbl;
@@ -62,10 +62,10 @@ public class BubbleSort extends Algorithm{
         this.thread.start();
         this.isVisualizationOn = true;
     }
-    public void pauseThread(){
+    public void pauseVisualization(){
         this.thread.suspend();
     }
-    public void resumeThread(){
+    public void resumeVisualization(){
         this.thread.resume();
     }
     public void drawElements(){

@@ -15,7 +15,6 @@ public class Main extends Application{
         Scene scene = new Scene(fxmlLoader.load(), 1015, 440);
         stage.setTitle("Algorithms Visualizer");
         stage.setScene(scene);
-        //stage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
         stage.show();
     }
 
