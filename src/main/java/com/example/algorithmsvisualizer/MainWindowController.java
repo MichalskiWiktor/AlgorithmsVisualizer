@@ -49,7 +49,6 @@ public class MainWindowController{
         }
         /*Showing algorithm*/
         this.bigONotationLbl.setText(algorithm.getBigONotation());
-        algorithm.drawElements();
         algorithm.drawSortingVisualization();
         this.algorithm = algorithm;
     }

@@ -13,17 +13,28 @@ public abstract class AlgorithmVisualization{
     private Line[] lines;
     private HBox hbox;
     private Label clockLbl;
-    private Thread thread;
+    protected Thread thread;
     private boolean isVisualizationOn;
 
+    public AlgorithmVisualization(int values[], HBox hbox, Label clockLbl, double speed){
+        this.values = values;
+        this.hbox = hbox;
+        this.clockLbl = clockLbl;
+        this.speed = speed;
+        this.length = this.values.length;
+        this.lines = new Line[this.length];
+        this.bigONotation = "O(n^2)";
+        this.isVisualizationOn = false;
+    }
     public abstract void drawSortingVisualization();
-    public void drawElements(){
+    public Line[] drawElements(){
         for(int k=0;k<this.length;k++){
             lines[k] = new Line(0, k, 0, values[k]*8);
             lines[k].setStroke(Color.rgb(220, 156, 253));
             lines[k].setStrokeWidth(20.5);
         }
         this.hbox.getChildren().addAll(lines);
+        return lines;
     }
     public void pauseVisualization(){
         this.thread.suspend();

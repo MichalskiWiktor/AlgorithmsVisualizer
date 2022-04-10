@@ -29,7 +29,7 @@
             <HBox.margin>
                 <Insets left="20.0" />
             </HBox.margin>
-            <Label fx:id="menuLbl1" prefHeight="17.0" prefWidth="210.0" style="-fx-font-weight: bold;" text="No. of elements" textFill="#f56a4d">
+            <Label fx:id="menuLbl1" prefHeight="17.0" prefWidth="210.0" style="-fx-font-weight: bold;" text="Number of elements" textFill="#f56a4d">
                 <font>
                     <Font name="Noto Sans Bold" size="14.0" />
                 </font>
