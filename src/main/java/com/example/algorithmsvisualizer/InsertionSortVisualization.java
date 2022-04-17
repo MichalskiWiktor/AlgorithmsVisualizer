@@ -28,35 +28,40 @@ public class InsertionSortVisualization extends AlgorithmVisualization{
         this.isVisualizationOn = false;
     }
     public void drawSortingVisualization() {
+        this.lines = super.drawElements(); /////Drawing lines
         Thread thread = new Thread(() -> {
-            for (int i = 0; i < length-1; i++){
-                for (int j = 0; j < length-i-1; j++){
-                    if (values[j] > values[j+1]) {
-                        int line1index = hbox.getChildren().indexOf(lines[j]);
-                        int line2index = hbox.getChildren().indexOf(lines[j+1]);
-                        try{
-                            int line1endY = (int)((Line)hbox.getChildren().get(line1index)).getEndY();
-                            ((Line) hbox.getChildren().get(line1index)).setStroke(Color.WHITE);
-                            ((Line)hbox.getChildren().get(line1index)).setEndY(((Line)hbox.getChildren().get(line2index)).getEndY());
-                            ((Line)hbox.getChildren().get(line2index)).setEndY(line1endY);
-                        }catch(IndexOutOfBoundsException e){
-                            Thread.currentThread().stop();
-                        }
-                        int temp = values[j];
-                        values[j] = values[j+1];
-                        values[j+1] = temp;
-                        try{
-                            Thread.sleep((long)(1000/speed));
-                        }catch(InterruptedException e){
-                            e.printStackTrace();
-                        }
-                        try{
-                            ((Line) hbox.getChildren().get(line1index)).setStroke(Color.rgb(220, 156, 253));
-                        }catch(IndexOutOfBoundsException e){
-                            Thread.currentThread().stop();
-                        }
+            for (int i = 1; i < this.length; ++i) {
+                int key = this.values[i];
+                int j = i - 1;
+                while (j >= 0 && this.values[j] > key) {
+                    ////physical change
+                    this.values[j + 1] = this.values[j];
+                    ////visual change
+                    int line1index = hbox.getChildren().indexOf(lines[j]);
+                    int line2index = hbox.getChildren().indexOf(lines[j+1]);
+                    try{
+                        int line1endY = (int)((Line)hbox.getChildren().get(line1index)).getEndY();
+                        ((Line) hbox.getChildren().get(line1index)).setStroke(Color.WHITE);
+                        ((Line)hbox.getChildren().get(line1index)).setEndY(((Line)hbox.getChildren().get(line2index)).getEndY());
+                        ((Line)hbox.getChildren().get(line2index)).setEndY(line1endY);
+                    }catch(IndexOutOfBoundsException e){
+                        Thread.currentThread().stop();
+                    }
+                    ////wait
+                    try{
+                        Thread.sleep((long)(1000/speed));
+                    }catch(InterruptedException e){
+                        e.printStackTrace();
+                    }
+                    j--;
+                    //////change color to default
+                    try{
+                        ((Line) hbox.getChildren().get(line1index)).setStroke(Color.rgb(220, 156, 253));
+                    }catch(IndexOutOfBoundsException e){
+                        Thread.currentThread().stop();
                     }
                 }
+                this.values[j + 1] = key;
             }
         });
         this.thread = thread;
