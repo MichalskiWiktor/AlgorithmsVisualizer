@@ -44,6 +44,7 @@ public class MainWindowController{
         switch(this.algorithmPicker.getSelectionModel().getSelectedItem().toString()){
             case "Bumble Sort" -> algorithm = new BubbleSortVisualization(getRandomNumbers(numElements, 42), this.hbox, this.clockLbl, this.speedSlider.getValue());
             case "Insertion Sort" -> algorithm = new InsertionSortVisualization(getRandomNumbers(numElements, 42), this.hbox, this.clockLbl, this.speedSlider.getValue());
+            case "Selection Sort" -> algorithm = new SelectionSortVisualization(getRandomNumbers(numElements, 42), this.hbox, this.clockLbl, this.speedSlider.getValue());
             default -> {
                 System.out.println("error");
             }

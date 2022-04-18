@@ -66,6 +66,7 @@ public class InsertionSortVisualization extends AlgorithmVisualization{
         });
         this.thread = thread;
         this.thread.start();
+        super.thread = this.thread;
         this.isVisualizationOn = true;
     }
 }
