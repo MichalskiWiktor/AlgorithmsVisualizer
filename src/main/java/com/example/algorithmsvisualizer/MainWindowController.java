@@ -19,7 +19,7 @@ public class MainWindowController{
     @FXML HBox hbox = new HBox();
     AlgorithmVisualization algorithm;
     @FXML public void initialize(){
-        this.algorithmPicker.getItems().addAll("Bumble Sort", "Selection Sort", "Insertion Sort", "Quick Sort");
+        this.algorithmPicker.getItems().addAll("Bubble Sort", "Selection Sort", "Insertion Sort", "Quick Sort");
         this.algorithmPicker.getSelectionModel().selectFirst();
     }
 
@@ -42,9 +42,10 @@ public class MainWindowController{
         /*Creating algorithm*/
         AlgorithmVisualization algorithm = null;
         switch(this.algorithmPicker.getSelectionModel().getSelectedItem().toString()){
-            case "Bumble Sort" -> algorithm = new BubbleSortVisualization(getRandomNumbers(numElements, 42), this.hbox, this.clockLbl, this.speedSlider.getValue());
+            case "Bubble Sort" -> algorithm = new BubbleSortVisualization(getRandomNumbers(numElements, 42), this.hbox, this.clockLbl, this.speedSlider.getValue());
             case "Insertion Sort" -> algorithm = new InsertionSortVisualization(getRandomNumbers(numElements, 42), this.hbox, this.clockLbl, this.speedSlider.getValue());
             case "Selection Sort" -> algorithm = new SelectionSortVisualization(getRandomNumbers(numElements, 42), this.hbox, this.clockLbl, this.speedSlider.getValue());
+            case "Quick Sort" -> algorithm = new QuickSortVisualization(getRandomNumbers(numElements, 42), this.hbox, this.clockLbl, this.speedSlider.getValue());
             default -> {
                 System.out.println("error");
             }

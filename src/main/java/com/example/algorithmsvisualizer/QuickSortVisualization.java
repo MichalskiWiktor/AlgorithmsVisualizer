@@ -1,5 +1,6 @@
 package com.example.algorithmsvisualizer;
 
+import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -27,40 +28,64 @@ public class QuickSortVisualization extends AlgorithmVisualization{
         this.bigONotation = "O(n^2)";
         this.isVisualizationOn = false;
     }
-    public void drawSortingVisualization() {
-        Thread thread = new Thread(() -> {
-            for (int i = 0; i < length-1; i++){
-                for (int j = 0; j < length-i-1; j++){
-                    if (values[j] > values[j+1]) {
-                        int line1index = hbox.getChildren().indexOf(lines[j]);
-                        int line2index = hbox.getChildren().indexOf(lines[j+1]);
-                        try{
-                            int line1endY = (int)((Line)hbox.getChildren().get(line1index)).getEndY();
-                            ((Line) hbox.getChildren().get(line1index)).setStroke(Color.WHITE);
-                            ((Line)hbox.getChildren().get(line1index)).setEndY(((Line)hbox.getChildren().get(line2index)).getEndY());
-                            ((Line)hbox.getChildren().get(line2index)).setEndY(line1endY);
-                        }catch(IndexOutOfBoundsException e){
-                            Thread.currentThread().stop();
-                        }
-                        int temp = values[j];
-                        values[j] = values[j+1];
-                        values[j+1] = temp;
-                        try{
-                            Thread.sleep((long)(1000/speed));
-                        }catch(InterruptedException e){
-                            e.printStackTrace();
-                        }
-                        try{
-                            ((Line) hbox.getChildren().get(line1index)).setStroke(Color.rgb(220, 156, 253));
-                        }catch(IndexOutOfBoundsException e){
-                            Thread.currentThread().stop();
-                        }
+    public void sort(int[] a, int left, int right, HBox newHbox){
+        System.out.println(left);
+        System.out.println(right);
+        if (left < right){
+            System.out.println("weszlo");
+            int pivot = a[right];
+            int pos = left - 1;
+            /*Setting colors for pivot and pos*/
+            try{
+                ((Line) newHbox.getChildren().get(newHbox.getChildren().indexOf(pivot))).setStroke(Color.rgb(245, 106, 77));
+                ((Line) newHbox.getChildren().get(newHbox.getChildren().indexOf(pos))).setStroke(Color.BLACK);
+            }catch(IndexOutOfBoundsException e){
+                Thread.currentThread().stop();
+            }
+            for (int i = left; i < right; i++){
+                System.out.println("ok1");
+                try{
+                    ((Line) newHbox.getChildren().get(newHbox.getChildren().indexOf(i))).setStroke(Color.WHITE);
+                }catch(IndexOutOfBoundsException e){
+                    Thread.currentThread().stop();
+                }
+                if (a[i] <= pivot){
+                    Swap(a, ++pos, i);
+                    try{
+                        ((Line) newHbox.getChildren().get(newHbox.getChildren().indexOf(++pos))).setStroke(Color.rgb(157, 228, 124));
+                        ((Line) newHbox.getChildren().get(newHbox.getChildren().indexOf(i))).setStroke(Color.rgb(157, 228, 124));
+                    }catch(IndexOutOfBoundsException e){
+                        Thread.currentThread().stop();
                     }
                 }
+            }
+            Swap(a, pos + 1, right);
+            sort(a, left, pos, newHbox);
+            sort(a, pos + 1, right, newHbox);
+        }
+    }
+    public void Swap(int[] a, int i, int j){
+        int temp = a[j];
+        a[j] = a[i];
+        a[i] = temp;
+    }
+    public void drawSortingVisualization() {
+        this.lines = super.drawElements(); /////Drawing lines
+        Thread thread = new Thread(() -> {
+            long startTime = System.currentTimeMillis();
+            sort(values, 0, length-1, hbox);
+            long endTime = System.currentTimeMillis();
+            long time = (endTime - startTime)/1000;
+            if(time>60){
+                Platform.runLater(() -> clockLbl.setText(time/60 + "m"));
+            }
+            else{
+                Platform.runLater(() -> clockLbl.setText(time + "s"));
             }
         });
         this.thread = thread;
         this.thread.start();
+        super.thread = this.thread;
         this.isVisualizationOn = true;
     }
 }

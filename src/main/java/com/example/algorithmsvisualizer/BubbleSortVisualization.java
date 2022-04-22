@@ -1,5 +1,6 @@
 package com.example.algorithmsvisualizer;
 
+import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -30,6 +31,7 @@ public class BubbleSortVisualization extends AlgorithmVisualization{
     public void drawSortingVisualization() {
         this.lines = super.drawElements(); /////Drawing lines
          Thread thread = new Thread(() -> {
+             long startTime = System.currentTimeMillis();
             for (int i = 0; i < length-1; i++){
                 for (int j = 0; j < length-i-1; j++){
                     if (values[j] > values[j+1]) {
@@ -59,6 +61,14 @@ public class BubbleSortVisualization extends AlgorithmVisualization{
                     }
                 }
             }
+             long endTime = System.currentTimeMillis();
+             long time = (endTime - startTime)/1000;
+             if(time>60){
+                 Platform.runLater(() -> clockLbl.setText(time/60 + "m"));
+             }
+             else{
+                 Platform.runLater(() -> clockLbl.setText(time + "s"));
+             }
         });
          this.thread = thread;
         this.thread.start();

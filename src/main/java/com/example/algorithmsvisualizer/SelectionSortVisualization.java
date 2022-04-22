@@ -1,5 +1,6 @@
 package com.example.algorithmsvisualizer;
 
+import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -30,6 +31,7 @@ public class SelectionSortVisualization extends AlgorithmVisualization{
     public void drawSortingVisualization() {
         this.lines = super.drawElements(); /////Drawing lines
         Thread thread = new Thread(() -> {
+            long startTime = System.currentTimeMillis();
             // One by one move boundary of unsorted subarray
             for (int i = 0; i < this.length-1; i++){
                 // Find the minimum element in unsorted array
@@ -47,7 +49,7 @@ public class SelectionSortVisualization extends AlgorithmVisualization{
                         min_idx = j;
                         /////giving new smallest color
                         try{
-                            ((Line) hbox.getChildren().get(line1index)).setStroke(Color.RED);
+                            ((Line) hbox.getChildren().get(line1index)).setStroke(Color.rgb(245, 106, 77));
                         }catch(IndexOutOfBoundsException e){
                             Thread.currentThread().stop();
                         }
@@ -89,8 +91,8 @@ public class SelectionSortVisualization extends AlgorithmVisualization{
                 int line2index = hbox.getChildren().indexOf(lines[i]);
                 try{
                     int line1endY = (int)((Line)hbox.getChildren().get(line1index)).getEndY();
-                    ((Line) hbox.getChildren().get(line1index)).setStroke(Color.GREEN);
-                    ((Line) hbox.getChildren().get(line2index)).setStroke(Color.GREEN);
+                    ((Line) hbox.getChildren().get(line1index)).setStroke(Color.rgb(157, 228, 124));
+                    ((Line) hbox.getChildren().get(line2index)).setStroke(Color.rgb(157, 228, 124));
                     ((Line)hbox.getChildren().get(line1index)).setEndY(((Line)hbox.getChildren().get(line2index)).getEndY());
                     ((Line)hbox.getChildren().get(line2index)).setEndY(line1endY);
                 }catch(IndexOutOfBoundsException e){
@@ -108,6 +110,14 @@ public class SelectionSortVisualization extends AlgorithmVisualization{
                 }catch(IndexOutOfBoundsException e){
                     Thread.currentThread().stop();
                 }
+            }
+            long endTime = System.currentTimeMillis();
+            long time = (endTime - startTime)/1000;
+            if(time>60){
+                Platform.runLater(() -> clockLbl.setText(time/60 + "m"));
+            }
+            else{
+                Platform.runLater(() -> clockLbl.setText(time + "s"));
             }
         });
         this.thread = thread;
